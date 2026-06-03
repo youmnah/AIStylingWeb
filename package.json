@@ -1,0 +1,46 @@
+{
+  "name": "AIServices",
+  "version": "1.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^19.2.3",
+    "@angular/core": "^19.2.3",
+    "@angular/forms": "^19.2.3",
+    "@angular/platform-browser-dynamic": "^19.2.3",
+    "@angular/router": "^19.2.3",
+    "@ng-bootstrap/ng-bootstrap": "^18.0.0",
+    "@sentry/tracing": "^5.29.2",
+    "crypto-js": "^4.0.0",
+    "fast-xml-parser": "^5.0.9",
+    "file-saver": "^2.0.5",
+    "ngx-daterangepicker-material": "^6.0.4",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.0.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.2.4",
+    "@angular/cli": "^19.2.4",
+    "@types/babel__core": "^7.20.5",
+    "@types/jasmine": "~3.6.0",
+    "@types/node": "^22.13.13",
+    "esbuild": "^0.25.1",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "^1.5.0",
+    "ts-node": "~8.3.0",
+    "typescript": "5.8",
+    "zone.js": "^0.15.0"
+  },
+  "browser": {
+    "crypto": false
+  }
+}
