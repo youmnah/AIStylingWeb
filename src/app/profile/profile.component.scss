@@ -1,0 +1,158 @@
+.profile-content {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 30px;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  margin: 20px auto;
+}
+
+label {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 70%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.gender-options {
+  display: flex;
+  gap: 10px;
+  width: 70%;
+}
+
+.gender-btn, .measurement-btn {
+  flex: 1;
+  padding: 10px;
+  background: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.measurement-btn {
+  min-width: 100px;
+  margin-right: 5px;
+}
+
+.measurement-span {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.gender-btn.active, .measurement-btn.active {
+  background: black;
+  color: white;
+}
+
+.measurement {
+  gap: 10px;
+}
+
+.measurement input {
+  width: 70%;
+  margin-right: 5px;
+}
+
+.note {
+  font-size: 15px;
+  color: gray;
+}
+
+.body-type-image{
+    width: auto;
+    height: 200px;
+}
+
+.palette-image {
+    width: 150px;
+    height: auto;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.option {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.option:hover, .option-active {
+  border: 2px solid black;    
+}
+  
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.back-btn, .next-btn {
+  padding: 10px 20px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.next-btn {
+    margin-left: auto;
+}
+  
+.next-btn:hover, .back-btn:hover {
+  opacity: 0.8;
+}
+  
+@media (max-width: 768px) {
+  .options-grid {    
+    grid-template-columns: repeat(2, 1fr);    
+  }
+}
+
+.image-preview {
+  position: relative;
+  width: 110px;
+}
+
+.image-preview img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+.upload-icon {
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+}
+
+.upload-icon.uploaded {
+  width: 30px !important;
+  height: 30px !important;
+  opacity: 1;
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+}

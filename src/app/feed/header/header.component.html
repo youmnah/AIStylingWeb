@@ -1,0 +1,4 @@
+<header *ngIf="data">
+    <div class="logo" (click)="reloadPage()"><img class="icon-profile" src=".\assets\drawables\AIIcon.png"><br />STYLING</div>
+    <div class="logo" (click)="gotoProfile()"><img  class="icon-profile" [src]="data.ProfileImage"><br />{{data.ProfileName}}</div>
+</header>

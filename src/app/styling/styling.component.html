@@ -1,0 +1,119 @@
+<div class="section-title"> 
+    <h3 style="text-align: center;">Ai Styling</h3>
+</div>
+<div class="container" *ngIf="tabId == 1 && stylingdata && isAllowed && closets.length > 0">   
+    <div class="section">
+        <div class="settings-header">
+            <label>What occasion are you styling for?</label>            
+        </div>
+        <div class="options">
+            <button *ngFor="let occ of stylingdata.Occasion" [class.selected]="selectedOccasions.includes(occ.occasionName)" (click)="toggleOccasion(occ)">
+                {{ occ.occasionName }}
+            </button>
+        </div>    
+    </div>    
+    <br />
+    <div class="section">
+        <div class="settings-header">
+            <label>When</label>
+        </div>
+        <div class="options">
+            <button *ngFor="let day of stylingdata.When" [class.selected]="selectedDays.includes(day.WhenName)" (click)="toggleDay(day)">
+                {{ day.WhenName }}
+            </button>
+        </div>
+        <br />
+        <div class="weather-card" *ngIf="day.date">
+            <div class="weather-info">
+              <div>{{ day.date }}
+              <div style="font-weight: bold; display: inline; padding-left: 10px;">{{ day.temp }}</div></div>
+            </div>    
+            <div class="icon-container">
+              <img [src]="day.icon" alt="{{ day.weatherCode }}" class="weather-icon" />      
+            </div>            
+        </div>         
+    </div>
+    <br />
+    <div class="section section-column">
+        <label>Color Preference</label>
+        <div class="options">
+            <button *ngFor="let color of stylingdata.ColorPreference" class="selected">
+                {{ color.PaletteName }}
+            </button>
+        </div>  
+    </div>
+    <div class="section section-column">
+        <label>Choose Closet</label>    
+        <div class="closets">       
+            <div class="closet" *ngFor="let closet of closets" (click)="selectCloset(closet.ClosetID)">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" [checked]="selectedClosetId.includes(closet.ClosetID)" class="styled-checkbox" />
+                </div>
+                <div class="closet-image">
+                    <img *ngFor="let item of closet.Items" [src]="item.ImagePath" alt="Closet Icon">               
+                </div>
+                <p>{{closet.ClosetName}}</p>
+                <p style="font-size: 9px;">{{closet.ItemCounts}}</p>
+            </div>   
+        </div>
+    </div>
+    <div class="section section-column">
+        <label>Preferred items</label>  
+        <p>These items appear in all outfits</p>        
+        <ng-container *ngFor="let cat of FavoriteList; let i = index">                           
+            <img *ngFor="let item of cat.Items" class="itemimg" src="{{item.ImagePath}}" alt="Item Image" />            
+        </ng-container>
+        <div class="itemimg" (click)="GoToFavorites()">
+            <img src=".\assets\drawables\AddItem.png" class="add-icon" >       
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="GetSuggestionsdiv">        
+        <button class="GetSuggestions" (click)="GetSuggestions()">Get Suggestions</button>      
+    </div>
+</div>
+
+<div class="container" *ngIf="tabId == 3 && isAllowed">
+    <div class="outfit-waiting">
+        Preparing your best outfit 
+        <div class="dot-loader">
+            <span class="dot" *ngFor="let dot of [1,2,3,4]"></span>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="outfits.length > 0 && tabId == 4 && isAllowed">
+    <h3 class="title">Ai Styling</h3> 
+    <div class="weather-card" *ngIf="day.date" style="background-color: transparent;">
+        <div class="weather-info">
+            <div class="templabel">{{ day.temp }}</div>
+            <div class="icon-container">
+                <img [src]="day.icon" alt="{{ day.weatherCode }}" class="weather-icon" />      
+            </div>
+        </div>        
+        <br />
+        <div class="weather-info">
+            <div>{{ day.date }} - {{season.seasonName}}</div>
+        </div>           
+    </div>
+    <br /><br />
+    <div class="closets">       
+        <div class="closet" *ngFor="let outfit of outfits" (click)="SaveOutfit(outfit)">            
+            <div class="closet-image">
+                <img *ngIf="outfit.topPath" [src]="outfit.topPath" alt="Closet Icon">    
+                <img *ngIf="outfit.bottomPath" [src]="outfit.bottomPath" alt="Closet Icon">
+                <img *ngIf="outfit.shoesPath" [src]="outfit.shoesPath" alt="Closet Icon">
+            </div>       
+        </div>
+        <br />          
+    </div>
+    <div>
+        <span style="font-weight: bold; font-size: 16px;">Getting strange outfits repeatedly?</span><br />
+        To get better suggestions, please ensure your items information are correct.
+    </div> 
+    <div class="btn-group">
+        <button class="back-btn" (click)="Back()">Back</button>
+        <button class="next-btn" (click)="GotToOutfitTab()">Done</button>
+    </div>
+</div>

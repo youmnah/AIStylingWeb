@@ -1,0 +1,33 @@
+.ngb-toast {
+	color: white;
+}
+.success {
+	background-color: #005288;    
+}
+.danger {
+	background-color: #b10000;
+}
+.warning {
+	background-color: #ffa500;
+}
+
+.success, .danger, .warning{
+    padding: 10px;
+}
+
+.toast {
+    flex-basis: 350px;
+    max-width: 350px;
+    font-size: .875rem;
+	padding: 0.75rem;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 .25rem .75rem rgba(0,0,0,.1);
+    opacity: 0;
+    border-radius: .25rem;
+}
+
+.toast.show {
+    display: block;
+    opacity: 1;
+}

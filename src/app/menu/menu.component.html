@@ -1,0 +1,22 @@
+<div class="bottom-nav">
+    <div class="nav-item" [class.active]="activeTab === 'explore'" (click)="selectTab('explore')">
+        <div class="nav-icon-wrapper"><img [src]="activeTab === 'explore' ? './assets/drawables/Explore-Active.png' : './assets/drawables/Explore.png'" alt="Explore" /></div>        
+    </div>
+    <div class="nav-item" [class.active]="activeTab === 'closet'" (click)="selectTab('closet')">
+        <div class="nav-icon-wrapper"><img [src]="activeTab === 'closet' ? './assets/drawables/Closet-Active.png' : './assets/drawables/Closet.png'" alt="Closet" /></div>        
+    </div>
+    <div class="nav-item" [class.active]="activeTab === 'ai'" (click)="selectTab('ai')">
+        <div class="nav-icon-wrapper"><img [src]="activeTab === 'ai' ? './assets/drawables/AI-Active.png' : './assets/drawables/AI.png'" alt="AI Styling" /></div>        
+    </div>
+    <div class="nav-item" [class.active]="activeTab === 'outfit'" (click)="selectTab('outfit')">
+        <div class="nav-icon-wrapper"><img [src]="activeTab === 'outfit' ? './assets/drawables/Outfit-Active.png' : './assets/drawables/Outfit.png'" alt="Outfit" /></div>        
+    </div>
+    <div class="nav-item" [class.active]="activeTab === 'profile'" (click)="selectTab('profile')">
+        <div class="nav-icon-wrapper"><img [src]="activeTab === 'profile' ? './assets/drawables/Profile-Active.png' : './assets/drawables/Profile.png'" alt="Profile" /></div>        
+    </div>
+</div>
+<app-feed *ngIf="activeTab === 'explore'" (changeTab)="selectTab($event)"></app-feed>
+<app-profile *ngIf="activeTab === 'profile'" (changeTab)="selectTab($event)"></app-profile>
+<app-closet *ngIf="activeTab === 'closet'" (changeTab)="selectTab($event)"></app-closet>
+<app-outfit *ngIf="activeTab === 'outfit'" (changeTab)="selectTab($event)"></app-outfit>
+<app-styling *ngIf="activeTab === 'ai'" (changeTab)="selectTab($event)"></app-styling>

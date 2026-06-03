@@ -1,0 +1,480 @@
+.ai-banner {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.banner {
+  background: white;
+  color: black;
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;  
+  cursor: pointer;
+  height: 40px;
+  width: 500px;
+  max-width: 100%;
+  line-height: 18px;
+  display: block;
+  margin: 0 auto;
+  float: none;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.banner:hover {
+  border-color: #000;
+}
+
+.banner img {
+  width: 20px;
+  height: auto;
+}
+
+.icon-ai {
+    width: 20px;
+    height: auto;
+    margin: 0 10px 5px 5px;
+}
+
+  
+/* ✅ Closet Card */
+.closet-card {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 0 auto;
+    text-align: center; 
+    font-size: 14px;
+    color: black;
+    background-color: #fff;    
+}
+
+.closet-content {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  background-color: white;
+  border-radius: 30px;
+}
+
+  .section-title{
+    max-width: 1000px;
+    margin: 20px auto;
+    position: relative;
+  }
+
+  .back{
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    height: auto;
+    width: 20px;   
+  }
+
+  .closet{
+    width: 180px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
+    margin: 0 auto;
+    text-align: left; 
+    font-size: 14px;
+    color: black;
+    background-color: #fff;
+  }
+
+  .closet p{
+    text-align: left;
+    margin-bottom: 0px;
+    width: 100%;
+    line-height: 2;
+  }
+
+  .item-actions{
+    width: 110px;
+  }
+
+  .closets{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;    
+  }
+
+  .closets-wrap {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 30px;
+    margin-bottom: 100px;
+  }
+
+.closet-image{
+  width: 180px;
+  height: 180px;    
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.closet-image img {
+  width: 78px;
+  height: 78px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.closet-icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    opacity: 1;
+}
+
+.upload-icon {
+  width: auto;
+  height: 50px;  
+  opacity: 1;
+}
+
+.add-icon {
+  width: auto;
+  height: 30px;  
+  opacity: 1;
+}
+
+.closet-card:hover {
+    border-color: #000;
+    cursor: pointer;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .back-btn, .next-btn {
+    padding: 10px 20px;
+    border: none;
+    background: black;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+ 
+  .edit-btn img{
+    width: 20px;
+    height: auto;    
+  }
+
+  .settings-header, .section-column {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+button.next-btn {
+    margin-left: auto;
+}
+  
+  .next-btn:hover, .back-btn:hover {
+    opacity: 0.8;
+  }
+
+  .section {
+    margin-bottom: 30px;
+  }
+  
+  /* ✅ Labels & Inputs */
+  label {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .itemimg {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-align: center;
+    line-height: 7;
+  }
+
+  .items {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0px;
+    padding: 0px;    
+    margin: 0 auto;
+    overflow-x: auto;
+  }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    color: #e43696;
+  }
+
+  .container {
+    padding: 20px;    
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 30px;
+    margin-bottom: 100px;
+  }
+  .input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  .btn-group {
+    display: flex;
+    justify-content: space-between;    
+  }
+  .btn {
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .tag-group {
+    margin-top: 15px;
+  }
+  .tag {
+    margin: 5px;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+
+  .closet-container {
+    max-width: 500px;
+    margin: auto;    
+  }
+  
+  .upload-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+  
+  .upload-box {
+    width: 150px;
+    height: 150px;
+    border: 1px dashed #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .image-preview img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 10px;
+  }  
+  
+  .section {
+    margin-top: 15px;
+  }
+  
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+  }
+  
+  .options button {
+    padding: 6px 10px;
+    border: 1px solid #3f3d3d;
+    border-radius: 4px;
+    cursor: pointer;
+    color:#3f3d3d;
+    background-color: #f9f9f9;
+  }
+  
+  .options button.selected {        
+    font-weight: bold;
+    background-color: #e43696;
+    color: white;
+    border: 1px solid white;
+  } 
+  
+  .selection-text, .selection {
+    margin-top: 5px;
+    color: #e43696;
+    background-image: url("/assets/drawables/SelectArrow.png");
+    background-repeat: no-repeat;
+    background-position: left 0.75rem center;
+    background-size: 1rem;
+    width: 200px;
+    text-align: left;
+  }
+
+  .selection { 
+    background-image: none;
+    padding-left: 40px;
+  }
+
+  .upload-content {
+    text-align: center;
+    font-size: 15px;
+  }
+
+  select {
+    width: 200px;
+    padding: 0.5rem;
+    padding-left: 40px;;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color:#e43696;
+    background-color: transparent;
+    text-align: right;    
+    direction: rtl; 
+    border: none;
+    border-radius: 6px;
+  }
+
+  select option {
+    text-align: left;
+    direction: ltr;
+  }
+
+  .btn-img {
+    width: 30px;
+  }
+
+  .archive, .edit-btn, .heart {    
+    width: 20px;
+    cursor: pointer;
+    height: auto;
+    color: #3f3d3d;
+    margin: 0  0 0 5px;
+    float: right;
+  }
+
+  .archive img, .heart img {    
+    width: 20px; 
+    height: auto;
+  }
+
+  .archive.selected {    
+    color: #e43696;
+  }
+
+      
+@media (max-width: 768px) {
+  .closets{    
+      grid-template-columns: repeat(2, 1fr);        
+  }
+}
+
+.closetedit{
+  width: auto;
+  height: 20px;
+  margin-top: 5px;
+}
+
+.closet-bottom {
+  display: flex; 
+  justify-content: space-between; 
+  width: 90%;
+}
+
+.closet-edit {
+  position: relative;
+}
+
+.close-edit-popup {
+  position: absolute;
+  padding: 10px;
+  bottom: 50px;
+  left: -152px;
+  width: 170px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  box-shadow: 0 10px 15px -3px #b1abab;  
+}
+
+.close-edit-popup p {
+  cursor: pointer;
+}
+
+.icons {
+  width: auto;
+  height: 15px;
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 300px;  
+
+  input {
+    width: 100%;
+    padding: 5px 40px 5px 20px;
+    border-radius: 30px;
+    border: 1px solid #dcdcd4;
+    background-color: #fdfdfd;
+    font-size: 16px;
+    outline: none;
+  }
+
+  .search-icon {
+    position: absolute;
+    top: calc(50% - 16px);
+    right: 20px;
+    pointer-events: none;
+
+    img {
+      width: 16px;
+      height: 16px;
+      opacity: 1;
+    }
+  }
+}

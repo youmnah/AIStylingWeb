@@ -1,0 +1,44 @@
+.location {
+  margin: 10px;
+}
+
+.weather-container {
+  display: flex;
+  overflow-x: auto;
+}
+
+.weather-card {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  min-width: 230px;
+  margin: 0 10px;
+}  
+
+.icon-location {
+  width: 20px;
+  height: auto;
+  margin: 0 5px 5px 5px;
+}
+
+.weather-info {
+  display: inline;
+  float:left;
+  margin: 5px;
+  font-size: 18px;
+}
+
+.weather-icon {    
+  float:right;
+  width: 40px;
+  height: auto;
+}
+
+.icon-container {
+  height: 100%;
+  display: inline;
+  float:right;
+  display: flex;
+  justify-content: center;
+  align-items: center;    
+}

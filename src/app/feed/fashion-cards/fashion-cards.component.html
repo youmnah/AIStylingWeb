@@ -1,0 +1,9 @@
+<div class="section titlesection">
+  <h4>Latest Trends</h4>
+  <div class="masonry" *ngIf="isAllowed">
+    <a *ngFor="let article of articles" [href]="article.url" target="_blank" class="masonry-item">
+      <img [src]="article.urlToImage" alt="Article Image">
+      <p class="title">{{ article.Title }}</p>
+    </a>
+  </div>
+</div>

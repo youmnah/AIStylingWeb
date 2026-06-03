@@ -1,0 +1,5 @@
+<div class="ngb-toast" *ngFor="let toast of toastService.toasts">
+    <div [ngClass]="toast.classname">
+        {{ toast.textOrTpl }}     
+    </div>
+</div>

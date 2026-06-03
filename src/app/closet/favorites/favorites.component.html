@@ -1,0 +1,29 @@
+<ng-container *ngIf="isFavorite">
+    <div class="section-title">
+        <img class="icons back" src=".\assets\drawables\Back.png" (click)="BacktoClosets()"/>
+        <h3 style="text-align: center;">Favorite</h3>
+    </div>
+    <div class="closet-content" *ngIf="FavoriteList.length == 0">
+        <div class="image-preview" style="text-align: center;">
+            <img src=".\assets\drawables\EmptyCloset.png"/>
+        </div>   
+        <h4 style="text-align: center;">There are no favorite clothes</h4>
+    </div>
+    <div class="closet-content" *ngIf="FavoriteList.length > 0">
+        <div class="section">          
+            <br />
+            <div *ngFor="let cat of FavoriteList; let i = index">
+                <label>{{cat.CategoryName}}</label>
+                <br />           
+                <div class="items">
+                    <div *ngFor="let item of cat.Items" class="item">
+                        <img class="itemimg" src="{{item.ImagePath}}" alt="Item Image" />
+                        <div class="item-actions">   
+                            <span class="heart" title="Click to favorite" (click)="ItemPreferred(item.ItemID, 1)"><img src="./assets/drawables/Heart-Active.png"/></span>                         
+                        </div>
+                    </div>
+                </div>
+            </div>         
+        </div>
+    </div>
+</ng-container>

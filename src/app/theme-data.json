@@ -1,0 +1,34 @@
+[
+	{
+		"app-url": "asiacell",
+		"main-color": "rgb(205,17,64)",
+		"main-color-light": "rgb(182, 24, 64)",
+		"menu-header-color":"#babbbd",
+		"app-logo": "../DWH/assets/E-logo.png"
+	},{
+		"app-url": "iraqcom",
+		"main-color": "#075c95",
+		"main-color-light": "#064c7c",
+		"menu-header-color":"#babbbd",
+		"app-logo": "../DWH/assets/iraqom_logo.png"		
+	},{
+		"app-url": "sandbox",
+		"main-color": "#05befb",
+		"main-color-light": "#68daff",
+		"menu-header-color":"#babbbd",
+		"app-logo": "../DWH/assets/Mobimind-logo.png"
+	},{
+		"app-url": "mobi-mind",
+		"main-color": "#005288",
+		"main-color-light": "#166396",		
+		"menu-header-color":"#babbbd",
+		"app-logo": "../DWH/assets/Mobimind-logo.png"
+	},
+	{
+		"app-url": "local",
+		"main-color": "#075c95",
+		"main-color-light": "#064c7c",
+		"menu-header-color":"#babbbd",
+		"app-logo": "../DWH/assets/Mobimind-logo.png"		
+	}
+]

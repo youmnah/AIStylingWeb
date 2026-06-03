@@ -1,0 +1,32 @@
+<app-header (changeTab)="gotoProfile($event)"></app-header>
+<app-weather></app-weather>
+<div class="section">
+    <div class="titlesection">
+        <h4>Recent Outfits</h4>
+        <button class="more" (click)="showMoreOutfits()">more</button>
+    </div>
+    <div class="outfits">       
+        <div class="outfit" *ngFor="let outfit of outfits">            
+            <div class="outfit-image">
+                <img *ngIf="outfit.TopPath" [src]="outfit.TopPath" alt="Closet Icon">    
+                <img *ngIf="outfit.BottomPath" [src]="outfit.BottomPath" alt="Closet Icon">
+                <img *ngIf="outfit.ShoesPath" [src]="outfit.ShoesPath" alt="Closet Icon">        
+            </div>       
+            <p>{{outfit.date | date:'dd MMM yyyy'}}</p>
+        </div>               
+    </div>    
+    <div class="titlesection">
+        <h4>My Closets</h4>
+        <button class="more" (click)="showMoreClosets()">more</button>
+    </div>
+    <div class="closets">       
+        <div class="closet" *ngFor="let closet of closets">
+            <div class="closet-image">
+                <img *ngFor="let item of closet.Items" [src]="item.ImagePath" alt="Closet Icon">               
+            </div>
+            <p>{{closet.ClosetName}}</p>
+            <p style="font-size: 9px;">{{closet.ItemCounts}}</p>
+        </div>                  
+    </div>
+</div>
+<app-fashion-cards></app-fashion-cards>

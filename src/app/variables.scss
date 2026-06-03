@@ -1,0 +1,42 @@
+$main-color: var(--main-color);
+:root{
+	--main-color: rgb(205,17,64);
+ }
+ $main-color-light: var(--main-color-light);
+:root{
+	--main-color-light: rgb(182, 24, 64);
+ }
+ 
+$table-header-color: var(--table-header-color);
+:root{
+	--table-header-color: rgb(205,17,64);
+}
+
+$menu-header-color: var(--menu-header-color);
+:root{
+	--menu-header-color: #babbbd;
+}
+$notification-number-color: var(--notification-number-color);
+:root{
+	--notification-number-color: rgb(205,17,64);
+}
+$logo: var(--logo);
+:root{
+	--logo: "";
+}
+
+$secondary-color: #404040;
+$icon-color: #656565;
+$background-color: #efefef;
+$bg-gray-color: #e2e2e2;
+$content-size: 14px;
+$textarea-size: 13px;
+$left-tab-font-size: 16px;
+
+
+$screen-1550: 1550px;
+$screen-1360: 1360px;
+$screen-1200: 1200px;
+
+$max-tablet-width: 959px;
+$max-mobile-width: 599px;

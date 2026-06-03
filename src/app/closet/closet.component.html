@@ -1,0 +1,177 @@
+<app-archive *ngIf="isArchive" [isArchive]="isArchive" [(isArchive)]="isArchive"></app-archive>
+<app-favorites *ngIf="isFavorite" [isFavorite]="isFavorite" [(isFavorite)]="isFavorite"></app-favorites>
+<ng-container *ngIf="!isArchive && !isFavorite">
+    <div class="section-title">
+        <h3 style="text-align: center;" *ngIf="isNew && !Showitems && !Showitem && !styling && isAllowed">Closets</h3>
+    </div>
+    <div class="closets-wrap" *ngIf="isNew && !Showitems && !Showitem && !styling && isAllowed">
+        <div class="search-container">
+            <input type="text" placeholder="Search closets..." [(ngModel)]="searchTerm" (input)="onSearch()" />
+            <span class="search-icon"><img src=".\assets\drawables\Search.png" alt="Search" /></span>
+        </div>
+        <div class="closets">
+            <div class="closet-card" (click)="CreateCloset()">
+                <img src=".\assets\drawables\closet-icon.png" alt="Closet Icon" class="closet-icon">
+                <p>Create a closet</p>
+            </div>  
+
+            <div class="closet" *ngFor="let closet of filteredClosets" [attr.draggable]="enableDrag[closet.ClosetOrder]" (dragstart)="drag($event, closet.ClosetOrder)" (dragover)="allowDrop($event)" (drop)="drop($event, closet.ClosetOrder)">
+                <div class="closet-image" (click)="EditCloset(closet.ClosetID, false)">
+                    <img *ngFor="let item of closet.Items" [src]="item.ImagePath" alt="Closet Icon">               
+                </div>
+                <div class="closet-bottom">
+                    <div>
+                        <p>{{closet.ClosetName}}</p>
+                        <p style="font-size: 9px;">{{closet.ItemCounts}}</p>
+                    </div>
+                    <div class="closet-edit">
+                        <img src=".\assets\drawables\closetedit.png" class="closetedit" alt="Closet Icon" (click)="ShowPopup(closet.ClosetID)">
+                        <div class="close-edit-popup" *ngIf="showPopup[closet.ClosetID]">
+                            <p (click)="toggleDrag(closet.ClosetOrder)"><img src=".\assets\drawables\Order.png" alt="Closet Icon" class="icons"> Edit Closet Order</p>                            
+                            <p (click)="DeleteCloset(closet.ClosetID)"><img src=".\assets\drawables\Delete.png" alt="Closet Icon" class="icons"> Delete Closet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />    
+        <div class="banner" (click)="Archive()"><img src="./assets/drawables/Archive.png"/> Archive</div><br />
+        <div class="banner" (click)="Favorites()"><img src="./assets/drawables/Heart.png"/> Favorites</div>    
+    </div>
+
+    <div class="section-title" *ngIf="!isNew && !Showitem && !styling && isAllowed">
+        <img class="icons back" src=".\assets\drawables\Back.png" (click)="BacktoClosets()"/>
+        <h3 style="text-align: center;">{{ closet.ClosetName != null && closet.ClosetName != "" ? closet.ClosetName : "Create a Closet" }}</h3>
+    </div>
+    <div class="closet-content" *ngIf="!isNew && !Showitem && !styling && isAllowed">
+        <div class="section">        
+            <label>Name</label>
+            <input typse="text" [(ngModel)]="closet.ClosetName" placeholder="Enter your Closet Name" />        
+            <div class="navigation">            
+                <button *ngIf="closet.ClosetName !== this.originalName" class="next-btn" (click)="SaveCloset()">Save</button>
+            </div>
+        </div>
+        <div class="section" *ngIf="!closet.Items || closet.Items.length == 0">      
+            <label>Add to closet</label>
+            <br />           
+            <div class="items">
+                <div class="item itemimg" (click)="AddItem()">
+                    <img src=".\assets\drawables\AddItem.png" class="add-icon">
+                </div>            
+            </div>               
+        </div> 
+        <div class="section" *ngIf="closet.Items && closet.Items.length > 0">
+            <div class="section-header">           
+                <label *ngIf="Categories.length > 1" (click)="AllItems()">All</label>
+                <label *ngIf="Categories.length < 2" (click)="Sort()">Sort</label>
+            </div>
+            <br />
+            <div *ngFor="let cat of Categories; let i = index">
+                <label>{{cat.categoryName}}</label>
+                <br />           
+                <div class="items">
+                    <div class="item itemimg" (click)="AddItem()"  *ngIf="i == 0">
+                        <img src=".\assets\drawables\AddItem.png" class="add-icon">
+                    </div>
+                    <div *ngFor="let item of cat.Items" class="item">
+                        <img class="itemimg" src="{{item.ImagePath}}" alt="Item Image" (click)="ShowItemDetails(item)" />
+                        <div class="item-actions">
+                            <span class="heart" title="Click to favorite" (click)="ItemPreferred(item.ItemID, item.Preferred)"><img [src]="item.Preferred ? './assets/drawables/Heart-Active.png' : './assets/drawables/Heart.png'"/></span>
+                            <span class="archive" title="Click to archive" (click)="ItemArchive(item.ItemID, item.Archive)"><img [src]="item.Archive ? './assets/drawables/Archive-Active.png' : './assets/drawables/Archive.png'"/></span>               
+                        </div>
+                    </div>
+                </div>
+            </div>         
+        </div>    
+    </div>
+
+    <div class="section-title" *ngIf="!Showitems && Showitem && !styling && isAllowed">
+        <img class="icons back" src=".\assets\drawables\Back.png" (click)="Back()"/>
+        <h3 style="text-align: center;">{{closet.ClosetName}}</h3>
+    </div>
+    <div class="container" *ngIf="!Showitems && Showitem && !styling && isAllowed">    
+        <div class="upload-section">        
+            <label class="upload-box" [style.display]="!imageUrl ? 'flex' : 'none'" >          
+            <input type="file" hidden #fileInput (change)="onImageUpload($event)" />
+            <div class="upload-content">
+                <span><img src=".\assets\drawables\upload.png" class="upload-icon"><br />Upload images</span>
+            </div>
+            </label>
+            <div class="image-preview" *ngIf="imageUrl">
+            <img [src]="imageUrl" alt="Preview" />
+            </div>               
+            <div class="btn-img">
+                <span class="edit-btn" (click)="editUpload(fileInput)"><img src=".\assets\drawables\edit.png"/></span>
+                <span class="heart" title="Click to favorite" (click)="togglePreferred()"><img [src]="favorite ? './assets/drawables/Heart-Active.png' : './assets/drawables/Heart.png'"/></span>
+                <span class="archive" title="Click to archive" (click)="toggleArchive()"><img [src]="archive ? './assets/drawables/Archive-Active.png' : './assets/drawables/Archive.png'"/></span>
+            </div>
+            <div class="btn-group" *ngIf="!(item.ItemID > 0) && imageUrl">
+                <button class="next-btn" (click)="CheckImage()">Analyse Item</button>  
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="settings-header">
+                <label>Season</label>
+                <div class="selection">{{ selectedSeasons.join(', ') }}</div>
+            </div>
+            <div class="options">
+            <button *ngFor="let season of closetdata.Seasons" [class.selected]="selectedSeasons.includes(season.seasonName)" (click)="toggleSeason(season)">
+                {{ season.seasonName }}
+            </button>
+            </div>        
+        </div>
+        
+        <div class="section">
+            <div class="settings-header">
+                <label>Occasions</label>
+                <div class="selection">{{ selectedOccasions.join(', ') }}</div>
+            </div>
+            <div class="options">
+                <button *ngFor="let occ of closetdata.Occasions" [class.selected]="selectedOccasions.includes(occ.occasionName)" (click)="toggleOccasion(occ)">
+                    {{ occ.occasionName }}
+                </button>
+            </div>        
+        </div>
+        
+        <div class="section section-column">
+            <label>Color</label>
+            <div class="selection-text">
+                <select #color id="color" [(ngModel)]="selectedColor" name="color" (change)="onColorChange()">
+                    <option *ngFor="let color of closetdata.Colors" [value]="color.ColorName">{{ color.ColorName  | titlecase }}</option>
+                </select>            
+            </div>
+        </div>
+        
+        <div class="section section-column">
+            <label>Category</label>
+            <div class="selection-text">
+                <select id="catgory" [(ngModel)]="selectedCategory" name="catgory" (change)="onCategoryChange()">
+                    <option *ngFor="let cat of closetdata.Categories" [value]="cat.categoryName">{{ cat.categoryName }}</option>
+                </select>            
+            </div>
+        </div>
+        
+        <div class="section section-column">
+            <label>Material</label>
+            <div class="selection-text">
+                <select id="material" [(ngModel)]="selectedMaterial" name="material" (change)="onMaterialChange()">
+                    <option *ngFor="let mat of closetdata.Materials" [value]="mat.materialName">{{ mat.materialName }}</option>
+                </select>            
+            </div>
+        </div>
+        
+        <div class="section section-column">
+            <label>Pattern</label>
+            <div class="selection-text">
+                <select id="pattern" [(ngModel)]="selectedPattern" name="pattern" (change)="onPatternChange()">
+                    <option *ngFor="let pat of closetdata.Patterns" [value]="pat.patternName">{{ pat.patternName }}</option>
+                </select>            
+            </div>
+        </div>
+        
+        <div class="btn-group">        
+            <button class="next-btn" (click)="SaveItem()">Add to closet</button>      
+        </div>
+    </div>
+</ng-container>

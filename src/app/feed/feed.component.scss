@@ -1,0 +1,92 @@
+.closet {
+  width: 180px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;   
+  margin: 0 auto;
+  text-align: left; 
+  font-size: 14px;
+  color: black;
+  background-color: #fff;
+}
+
+.outfit {
+  width: 140px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;   
+  margin: 0 auto;
+  text-align: left; 
+  font-size: 14px;
+  color: black;
+  background-color: #fff;
+}
+
+.closet p, .outift p{
+  text-align: center;
+  margin-bottom: 0px;
+  width: 100%;
+}
+
+.closets, .outfits{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;    
+  margin: 0 auto;
+  overflow-y: auto;
+}
+
+.closet-image{
+  width: 180px;
+  height: 180px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.closet-image img {
+  width: 78px;
+  height: 78px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.outfit-image{
+  width: 120px;
+  height: 120px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.outfit-image img {
+  width: 48px;
+  height: 48px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.section {
+  margin: 0 20px;
+  margin-top: 20px;
+}
+
+.more {
+  border-radius: 10px; 
+  background-color: #000;
+  color: #fff;
+  max-height: 30px;
+  padding: 0 15px;
+  margin-top: 10px;
+  border: none;
+}
+
+.titlesection {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}

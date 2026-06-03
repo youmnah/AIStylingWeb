@@ -1,0 +1,71 @@
+<div class="section-title">  
+    <h3 style="text-align: center;">Edit Profile</h3>
+</div>
+<div class="profile-content" *ngIf="isAllowed">
+    <h4 style="text-align: center;">Personal Information</h4>
+    <hr />
+    <div class="section">
+        <label>Profile Picture</label>
+        <div class="upload-section">
+            <label class="upload-box">
+              <input type="file" hidden #fileInput (change)="onImageUpload($event)" />
+              <div class="image-preview">
+                <img [src]="imageUrl" alt="Preview" *ngIf="imageUrl"/>
+                <div class="upload-content">
+                  <span><img src=".\assets\drawables\PPUpload.png" class="upload-icon"  [class]="!imageUrl ? '' : 'uploaded'"></span>
+                </div>
+              </div>
+            </label>           
+        </div>
+    </div>
+    <div class="section">
+        <label>Nickname</label>
+        <input type="text" [(ngModel)]="data.ProfileData.Nickname" placeholder="Enter your nickname" />
+        <br/><br/>
+        <label>{{data.ProfileParameters[0].ProfileParamName}}</label>
+        <div class="gender-options">
+            <button class="gender-btn" *ngFor="let gender of data.ProfileParameters[0].ProfileParamValue" [ngClass]="data.ProfileData.GenderID ==  gender.id ? 'active' : ''" (click)="data.ProfileData.GenderID = gender.id">{{gender.value}}</button>
+        </div>
+        <br/>
+        <label>What are your height and weight?</label><br/>
+        <div class="measurement">
+            <button class="measurement-btn" *ngFor="let height of data.ProfileParameters[1].ProfileParamValue" [ngClass]="data.ProfileData.HeightScaleID ==  height.id ? 'active' : ''" (click)="data.ProfileData.HeightScaleID = height.id">{{height.value}}</button>
+            <br/><br/>
+            <input type="text" [(ngModel)]="data.ProfileData.Height" placeholder="Height" /><span class="measurement-span">{{getValueById(1,data.ProfileData.HeightScaleID)}}</span>
+        </div>
+        <br/>
+        <div class="measurement">
+            <button class="measurement-btn" *ngFor="let weight of data.ProfileParameters[2].ProfileParamValue" [ngClass]="data.ProfileData.WeightScaleID ==  weight.id ? 'active' : ''" (click)="data.ProfileData.WeightScaleID = weight.id">{{weight.value}}</button>
+            <br/><br/>
+            <input type="text" [(ngModel)]="data.ProfileData.Weight" placeholder="Weight" /><span class="measurement-span">{{getValueById(2,data.ProfileData.WeightScaleID)}}</span>
+        </div>
+        <p class="note">*Entering your weight helps us suggest better outfits. We'll keep this information private.</p>       
+    </div>
+
+    <div class="section">
+        <label>What is your body type?</label>
+        <div class="options-grid">
+            <div class="option" *ngFor="let bodytype of data.ProfileParameters[4].ProfileParamValue" 
+            [ngClass]="data.ProfileData.BodyTypeID ==  bodytype.id ? 'option-active' : ''" (click)="data.ProfileData.BodyTypeID = bodytype.id">
+                <img *ngIf="bodytype.imagePath" [src]="bodytype.imagePath" alt="Body Type" class="body-type-image" />
+                <br/>
+                {{bodytype.value}}
+            </div>          
+        </div>       
+    </div>
+    
+    <div class="section">
+        <label>Which color palette suits you?</label>
+        <div class="options-grid">
+            <div class="option" *ngFor="let palette of data.ProfileParameters[3].ProfileParamValue" 
+            [ngClass]="data.ProfileData.PaletteID ==  palette.id ? 'option-active' : ''" (click)="data.ProfileData.PaletteID = palette.id">
+                <img *ngIf="palette.imagePath" [src]="palette.imagePath" alt="Palette" class="palette-image" />
+                <br/>
+                {{palette.value}}
+            </div>
+        </div>
+        <div class="navigation">            
+            <button class="next-btn" (click)="Save()">Save</button>
+        </div>
+    </div>    
+</div>
