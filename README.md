@@ -1,27 +1,165 @@
-# CGLP2
+# AI Styling Web
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
+## Overview
 
-## Development server
+AI Styling Web is an Angular-based web application that provides AI-powered fashion and styling recommendations. The application allows users to upload clothing images, analyze garments using machine learning models, and receive detailed fashion attributes such as clothing type, color, pattern, season, and style.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The application integrates with a backend AI API to deliver real-time clothing analysis and styling insights.
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
+
+### Clothing Analysis
+
+* Upload clothing images
+* Automatic garment classification
+* Clothing category detection
+* Pattern recognition
+* Color extraction
+
+### AI Styling
+
+* Style identification
+* Season recommendation
+* Fashion attribute prediction
+* Structured clothing metadata generation
+
+### User Interface
+
+* Responsive Angular application
+* Image upload functionality
+* Real-time prediction display
+* Modern user experience
+
+---
+
+## Technologies Used
+
+### Frontend
+
+* Angular
+* TypeScript
+* HTML5
+* CSS3
+
+### Backend Integration
+
+* REST APIs
+* AI Styling API
+* JSON-based communication
+
+---
+
+## Application Workflow
+
+1. User uploads a clothing image.
+2. The image is sent to the AI API.
+3. AI models analyze:
+
+   * Clothing type
+   * Category
+   * Pattern
+   * Color
+   * Season
+   * Style
+4. Results are displayed in the web interface.
+
+---
+
+## Installation
+
+### Prerequisites
+
+* Node.js
+* Angular CLI
+
+### Clone Repository
+
+```bash
+git clone https://github.com/youmnah/AIStylingWeb.git
+cd AIStylingWeb
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Run Development Server
+
+```bash
+ng serve
+```
+
+Navigate to:
+
+```text
+http://localhost:4200
+```
+
+---
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```bash
+ng build
+```
 
-## Running unit tests
+Build artifacts will be stored in:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```text
+dist/
+```
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Project Structure
 
-## Further help
+```text
+src/
+├── app/
+├── assets/
+├── environments/
+├── styles/
+└── index.html
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+## API Integration
+
+This project consumes the AI Styling API to perform clothing analysis and prediction tasks.
+
+Example API capabilities:
+
+* Clothing Type Detection
+* Color Detection
+* Pattern Classification
+* Season Prediction
+* Style Prediction
+
+---
+
+## Future Enhancements
+
+* Outfit recommendation engine
+* Virtual wardrobe management
+* AI-generated outfit suggestions
+* User profile personalization
+* Fashion trend recommendations
+
+---
+
+## Author
+
+Youmna Habchy
+
+AI & Software Engineer specializing in:
+
+* Angular Development
+* .NET Web APIs
+* Computer Vision
+* Machine Learning
+* Fashion AI Applications
